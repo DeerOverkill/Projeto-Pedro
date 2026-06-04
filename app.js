@@ -159,4 +159,25 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollTicking = true;
         }
     }, { passive: true });
+
+    // 7. IntersectionObserver para animar cards de Formação ao entrar na viewport
+    const formacaoCards = document.querySelectorAll('.formacao-card');
+
+    if (formacaoCards.length > 0) {
+        const formacaoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Para de observar após revelar — sem custo contínuo
+                    formacaoObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -60px 0px', // Dispara 60px antes do card sair da borda inferior
+            threshold: 0.1
+        });
+
+        formacaoCards.forEach(card => formacaoObserver.observe(card));
+    }
 });

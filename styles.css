@@ -343,8 +343,9 @@ main {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(160px, 220px));
   gap: 1.5rem;
+  justify-content: center;
 }
 
 .stat-item {
@@ -682,43 +683,26 @@ main {
   color: var(--accent-purple);
 }
 
-/* Scroll reveal animation for formação cards */
+/* Scroll reveal animation for formação cards — acionado via IntersectionObserver */
 .formacao-card {
   opacity: 0;
   transform: translateY(40px);
-  animation: formacao-reveal 0.6s ease forwards;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.formacao-card:nth-child(1) {
-  animation-delay: 0.1s;
+.formacao-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.formacao-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.formacao-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.formacao-card:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.formacao-card:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-.formacao-card:nth-child(6) {
-  animation-delay: 0.6s;
-}
-
-@keyframes formacao-reveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+.formacao-card:nth-child(1)  { transition-delay: 0.05s; }
+.formacao-card:nth-child(2)  { transition-delay: 0.10s; }
+.formacao-card:nth-child(3)  { transition-delay: 0.15s; }
+.formacao-card:nth-child(4)  { transition-delay: 0.20s; }
+.formacao-card:nth-child(5)  { transition-delay: 0.25s; }
+.formacao-card:nth-child(6)  { transition-delay: 0.30s; }
+.formacao-card:nth-child(7)  { transition-delay: 0.35s; }
+.formacao-card:nth-child(8)  { transition-delay: 0.40s; }
 
 /* PORTFOLIO */
 #projetos {
