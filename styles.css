@@ -232,15 +232,16 @@ main {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  
+
   /* Técnica de fundo duplo para moldura degradê idêntica à do avatar */
   background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
-              linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)) border-box;
+    linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)) border-box;
   border: 2px solid transparent !important;
-  
+
   color: var(--text-main);
   transition: all 0.3s ease;
-  overflow: hidden !important; /* Garante que nada vaze a moldura circular */
+  overflow: hidden !important;
+  /* Garante que nada vaze a moldura circular */
   position: relative;
 }
 
@@ -249,7 +250,8 @@ main {
   height: 100% !important;
   max-width: 100% !important;
   max-height: 100% !important;
-  object-fit: cover !important; /* Preenche todo o círculo perfeitamente */
+  object-fit: cover !important;
+  /* Preenche todo o círculo perfeitamente */
   border-radius: 50% !important;
 }
 
@@ -263,8 +265,9 @@ main {
 
 .social-icon:hover {
   background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
-              linear-gradient(135deg, var(--accent-purple), var(--accent-cyan)) border-box;
-  box-shadow: 0 0 15px rgba(34, 211, 238, 0.5) !important; /* Brilho neon no hover */
+    linear-gradient(135deg, var(--accent-purple), var(--accent-cyan)) border-box;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.5) !important;
+  /* Brilho neon no hover */
   transform: translateY(-3px);
 }
 
@@ -305,6 +308,20 @@ main {
   font-weight: 500;
 }
 
+.detail-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: color 0.2s ease, letter-spacing 0.2s ease;
+  display: inline-block;
+}
+
+.detail-link:hover {
+  color: var(--accent-purple);
+  letter-spacing: 0.3px;
+}
+
 .about-card {
   display: flex;
   flex-direction: column;
@@ -328,7 +345,73 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* TOOLS SECTION */
+.tools-section {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.tools-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+.tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: default;
+}
+
+.tool-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tool-item:hover .tool-icon-wrap {
+  transform: translateY(-4px);
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 6px 20px rgba(34, 211, 238, 0.15);
+}
+
+.tool-item span {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-align: center;
+  transition: color 0.25s ease;
+}
+
+.tool-item:hover span {
+  color: var(--accent-cyan);
 }
 
 .badge {
@@ -396,7 +479,7 @@ main {
 
 .timeline-container {
   position: relative;
-  max-width: 1150px;
+  max-width: 11523px;
   margin: 0 auto;
   padding: 2rem 0;
 }
@@ -434,13 +517,15 @@ main {
 .timeline-item.left {
   left: 0;
   text-align: right;
-  padding: 3.6rem 3rem 3.6rem 1.5rem; /* Increased top/bottom padding by 25px (from 2rem to 3.6rem) */
+  padding: 3.6rem 3rem 3.6rem 1.5rem;
+  /* Increased top/bottom padding by 25px (from 2rem to 3.6rem) */
 }
 
 .timeline-item.right {
   left: 50%;
   text-align: left;
-  padding: 3.6rem 1.5rem 3.6rem 3rem; /* Increased top/bottom padding by 25px (from 2rem to 3.6rem) */
+  padding: 3.6rem 1.5rem 3.6rem 3rem;
+  /* Increased top/bottom padding by 25px (from 2rem to 3.6rem) */
 }
 
 .timeline-dot {
@@ -470,7 +555,8 @@ main {
 }
 
 .timeline-card {
-  padding: 2.5rem 2rem; /* Increased vertical inner padding for luxurious space */
+  padding: 2.5rem 2rem;
+  /* Increased vertical inner padding for luxurious space */
   text-align: left;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
@@ -538,6 +624,35 @@ main {
 
 .timeline-card p {
   color: var(--text-muted);
+}
+
+.timeline-topics {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.timeline-topics li {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.timeline-topics li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  flex-shrink: 0;
 }
 
 /* FORMAÇÕES (EDUCATION) */
@@ -695,14 +810,37 @@ main {
   transform: translateY(0);
 }
 
-.formacao-card:nth-child(1)  { transition-delay: 0.05s; }
-.formacao-card:nth-child(2)  { transition-delay: 0.10s; }
-.formacao-card:nth-child(3)  { transition-delay: 0.15s; }
-.formacao-card:nth-child(4)  { transition-delay: 0.20s; }
-.formacao-card:nth-child(5)  { transition-delay: 0.25s; }
-.formacao-card:nth-child(6)  { transition-delay: 0.30s; }
-.formacao-card:nth-child(7)  { transition-delay: 0.35s; }
-.formacao-card:nth-child(8)  { transition-delay: 0.40s; }
+.formacao-card:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.formacao-card:nth-child(2) {
+  transition-delay: 0.10s;
+}
+
+.formacao-card:nth-child(3) {
+  transition-delay: 0.15s;
+}
+
+.formacao-card:nth-child(4) {
+  transition-delay: 0.20s;
+}
+
+.formacao-card:nth-child(5) {
+  transition-delay: 0.25s;
+}
+
+.formacao-card:nth-child(6) {
+  transition-delay: 0.30s;
+}
+
+.formacao-card:nth-child(7) {
+  transition-delay: 0.35s;
+}
+
+.formacao-card:nth-child(8) {
+  transition-delay: 0.40s;
+}
 
 /* PORTFOLIO */
 #projetos {
@@ -916,7 +1054,8 @@ footer {
 
   .timeline-item {
     width: 100%;
-    padding: 3.2rem 0 3.2rem 4rem; /* Spaced out beautifully on tablet/mobile */
+    padding: 3.2rem 0 3.2rem 4rem;
+    /* Spaced out beautifully on tablet/mobile */
   }
 
   .timeline-item.left,
