@@ -1,159 +1,488 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0b0f19">
-    <title>Humberto | Data Analyst & Creative Technologist</title>
-
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="#0b0f19" name="theme-color" />
+    <title data-i18n="page_title">Humberto Reis | Data Analytics &amp; Business Intelligence</title>
     <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Portfólio de Humberto, Profissional de Dados & Creative Technologist. Experiências imersivas de alta fidelidade visual, interfaces interativas e soluções de ponta.">
-    <meta name="keywords" content="Portfolio, Data Analyst, Data Science, Power BI, SQL, Python, Snowflake, Humberto">
-    <meta name="author" content="Humberto">
-
+    <meta
+        content="Portfólio profissional de Humberto Reis, especialista em Data Analytics e Business Intelligence com experiência em Power BI, SQL, Snowflake, Python, KPIs e otimização de processos."
+        data-i18n-content="meta_description" name="description" />
+    <meta
+        content="Data Analytics, Business Intelligence, Power BI, SQL, Snowflake, Python, KPI, Operational Analytics, Fraud Analytics, Humberto Reis"
+        name="keywords" />
+    <meta content="Humberto" name="author" />
     <!-- Preconnect: Google Fonts & Lucide CDN -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://unpkg.com">
-
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://unpkg.com" rel="preconnect" />
     <!-- Google Fonts: Inter (swap for instant text rendering) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link href="styles.css" rel="stylesheet" />
+    <style id="language-switcher-styles">
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.75rem;
+            margin-left: auto;
+        }
+
+        .language-switcher {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .language-btn {
+            min-width: 76px;
+            padding: 0.48rem 0.78rem;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.72);
+            font: inherit;
+            font-size: 0.78rem;
+            font-weight: 700;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .language-btn:hover {
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .language-btn:focus-visible {
+            outline: 2px solid #7c5cff;
+            outline-offset: 2px;
+        }
+
+        .language-btn.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.95), rgba(40, 181, 232, 0.9));
+            box-shadow: 0 6px 18px rgba(77, 109, 255, 0.28);
+        }
+
+        @media (max-width: 900px) {
+            .nav-actions {
+                gap: 0.45rem;
+            }
+
+            .language-btn {
+                min-width: auto;
+                padding: 0.44rem 0.58rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .navbar {
+                flex-wrap: wrap;
+                row-gap: 0.65rem;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: center;
+                margin-left: 0;
+                order: 3;
+            }
+        }
+
+        /* Seletor de idioma flutuante: permanece visível em todas as telas */
+        .language-floating {
+            position: fixed;
+            top: 92px;
+            right: 22px;
+            z-index: 99999;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.42rem;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 999px;
+            background: rgba(11, 15, 25, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.38),
+                inset 0 1px 0 rgba(255, 255, 255, 0.10);
+        }
+
+        .language-globe {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            font-size: 1rem;
+        }
+
+        .language-floating .language-btn {
+            min-width: 88px;
+            padding: 0.62rem 0.9rem;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.82);
+            font: inherit;
+            font-size: 0.78rem;
+            font-weight: 800;
+            line-height: 1;
+            cursor: pointer;
+            transition: transform 180ms ease, background 180ms ease,
+                color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .language-floating .language-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.10);
+            transform: translateY(-1px);
+        }
+
+        .language-floating .language-btn.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #7c5cff, #29b5e8);
+            box-shadow: 0 8px 22px rgba(72, 112, 255, 0.38);
+        }
+
+        @media (max-width: 760px) {
+            .language-floating {
+                top: auto;
+                right: 50%;
+                bottom: 18px;
+                transform: translateX(50%);
+                max-width: calc(100vw - 24px);
+            }
+
+            .language-floating .language-btn {
+                min-width: 96px;
+            }
+        }
+    </style>
+    <style id="portfolio-enhancements">
+        /* Conteúdo e componentes adicionais */
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            margin: 1.4rem 0 1.1rem;
+        }
+
+        .hero-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: .72rem 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(74, 190, 240, .30);
+            color: #f7f9ff;
+            font-size: .86rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+        }
+
+        .hero-action:hover {
+            transform: translateY(-2px);
+            border-color: rgba(124, 92, 255, .78);
+        }
+
+        .hero-action.primary {
+            background: linear-gradient(135deg, #7c5cff, #29b5e8);
+            box-shadow: 0 10px 28px rgba(60, 118, 255, .28);
+        }
+
+        .hero-action.secondary {
+            background: rgba(255, 255, 255, .055);
+        }
+
+        .projects-grid {
+            width: min(1380px, calc(100% - 48px));
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .project-card {
+            min-height: 360px;
+            padding: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 2px;
+            background: linear-gradient(90deg, #29b5e8, #7c5cff);
+        }
+
+        .project-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .project-number {
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            color: #29b5e8;
+        }
+
+        .project-status {
+            padding: .38rem .62rem;
+            border-radius: 999px;
+            background: rgba(124, 92, 255, .13);
+            color: #c9baff;
+            font-size: .72rem;
+            font-weight: 700;
+        }
+
+        .project-card h3 {
+            margin: 1.4rem 0 .8rem;
+            font-size: 1.35rem;
+        }
+
+        .project-description {
+            color: rgba(235, 241, 255, .73);
+            line-height: 1.7;
+        }
+
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .45rem;
+            margin: 1rem 0;
+        }
+
+        .project-tools span {
+            padding: .34rem .55rem;
+            border: 1px solid rgba(41, 181, 232, .22);
+            border-radius: 8px;
+            background: rgba(41, 181, 232, .07);
+            color: #a9e7ff;
+            font-size: .72rem;
+            font-weight: 600;
+        }
+
+        .project-outcome {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            color: rgba(235, 241, 255, .82);
+            font-size: .83rem;
+            line-height: 1.6;
+        }
+
+        .education-group {
+            margin-bottom: 2.2rem;
+        }
+
+        .education-group-title {
+            width: min(1380px, calc(100% - 48px));
+            margin: 0 auto 1rem;
+            font-size: 1rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #a98aff;
+        }
+
+        .additional-education .formacao-card {
+            min-height: 150px;
+            opacity: .92;
+        }
+
+        .timeline-fallback-logo {
+            display: none;
+            width: 60px;
+            height: 60px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #3157ff, #00b8d9);
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .timeline-card .timeline-topics li {
+            line-height: 1.55;
+        }
+
+        @media (max-width: 980px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                width: min(760px, calc(100% - 32px));
+            }
+
+            .project-card {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-action {
+                width: 100%;
+            }
+
+            .education-group-title {
+                width: calc(100% - 32px);
+            }
+        }
+    </style>
 </head>
 
 <body>
-
+    <!-- SELETOR DE IDIOMA SEMPRE VISÍVEL -->
+    <div aria-label="Selecionar idioma" class="language-floating" data-i18n-aria-label="language_group" role="group">
+        <span aria-hidden="true" class="language-globe">🌐</span>
+        <button aria-pressed="true" class="language-btn active" data-lang="pt" type="button">Português</button>
+        <button aria-pressed="false" class="language-btn" data-lang="en" type="button">English</button>
+    </div>
     <!-- NAVBAR FLUTUANTE (GLASSMORPHISM) -->
     <header>
         <nav class="navbar" id="navbar">
-            <a href="#" class="logo">
+            <a class="logo" href="#">
                 HUMBERTO REIS<span class="logo-dot"></span>
             </a>
             <ul class="nav-links">
-                <li><a href="#inicio" class="active">Início</a></li>
-                <li><a href="#trajetoria">Trajetória</a></li>
-                <li><a href="#formacoes">Formações</a></li>
+                <li><a class="active" data-i18n="nav_home" href="#inicio">Início</a></li>
+                <li><a data-i18n="nav_experience" href="#trajetoria">Trajetória</a></li>
+                <li><a data-i18n="nav_projects" href="#projetos">Projetos</a></li>
+                <li><a data-i18n="nav_education" href="#formacoes">Formações</a></li>
             </ul>
-            <a href="mailto:humberto_hrs@hotmail.com" class="nav-btn">Contato</a>
+            <a class="nav-btn" data-i18n="nav_contact" href="mailto:humberto_hrs@hotmail.com">Contato</a>
         </nav>
     </header>
-
     <!-- MAIN WRAPPER -->
     <main>
-
         <!-- HERO SECTION (GRID COM CARD DE BIOGRAFIA E SOBRE MIM) -->
         <section class="hero-grid" id="inicio">
-
             <!-- Left Card: Bio rápida e contatos -->
             <div class="glass-card profile-card">
                 <div class="avatar-wrapper">
                     <div class="avatar-ring"></div>
                     <div class="avatar-placeholder">
-                        <img src="Portifolio.2/assets/humberto.webp" alt="Foto de Perfil do Humberto" class="avatar-img"
-                            id="profile-img" width="160" height="160" loading="eager" decoding="async"
-                            fetchpriority="high">
+                        <img alt="Foto de Perfil do Humberto" class="avatar-img" decoding="async" fetchpriority="high"
+                            height="160" id="profile-img" loading="eager" src="Portifolio.2/assets/humberto.webp"
+                            width="160" />
                     </div>
                 </div>
                 <h2>HUMBERTO REIS</h2>
-                <p class="subtitle">Data Analyst | Scientist</p>
-
+                <p class="subtitle" data-i18n="profile_role">Analista Sênior de Data Analytics &amp; BI</p>
                 <div class="social-links">
-                    <a href="https://github.com/hrsilva84" class="social-icon" target="_blank" title="GitHub"
-                        id="github-link">
-                        <img src="Portifolio.2/assets/github-142-svgrepo-com.svg" alt="">
+                    <a class="social-icon" href="https://github.com/hrsilva84" id="github-link"
+                        rel="noopener noreferrer" target="_blank" title="GitHub">
+                        <img alt="" src="Portifolio.2/assets/github-142-svgrepo-com.svg" />
                     </a>
-                    <a href="https://www.linkedin.com/in/humberto-reis-71096183/" class="social-icon" target="_blank"
-                        title="LinkedIn" id="linkedin-link">
-                        <img src="Portifolio.2/assets/linkedin-round-svgrepo-com (1).svg" alt="">
+                    <a class="social-icon" href="https://www.linkedin.com/in/humberto-reis-71096183/" id="linkedin-link"
+                        rel="noopener noreferrer" target="_blank" title="LinkedIn">
+                        <img alt="" src="Portifolio.2/assets/linkedin-round-svgrepo-com (1).svg" />
                     </a>
-                    <a href="https://wa.me/5511999999999" class="social-icon" target="_blank" title="WhatsApp"
-                        id="whatsapp-link">
-                        <img src="Portifolio.2/assets/whatsapp-round-svgrepo-com.svg" alt="">
+                    <a class="social-icon" href="https://wa.me/5511946575838" id="whatsapp-link"
+                        rel="noopener noreferrer" target="_blank" title="WhatsApp">
+                        <img alt="" src="Portifolio.2/assets/whatsapp-round-svgrepo-com.svg" />
                     </a>
                 </div>
-
                 <div class="profile-details">
                     <div class="detail-item">
                         <div class="detail-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                <circle cx="12" cy="10" r="3" />
+                            <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
                             </svg>
                         </div>
                         <div class="detail-info">
-                            <h4>Localização</h4>
-                            <p>São Paulo, Brasil</p>
+                            <h4 data-i18n="location_label">Localização</h4>
+                            <p data-i18n="location_value">São Paulo, Brasil</p>
                         </div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="4" width="20" height="16" rx="2" />
-                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect height="16" rx="2" width="20" x="2" y="4"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                             </svg>
                         </div>
                         <div class="detail-info">
-                            <h4>E-mail</h4>
-                            <p>humberto.hrs@hotmail.com</p>
+                            <h4 data-i18n="email_label">E-mail</h4>
+                            <p>humberto_hrs@hotmail.com</p>
                         </div>
                     </div>
                     <!-- Portfólio de Projetos -->
                     <div class="detail-item">
                         <div class="detail-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7" />
-                                <rect x="14" y="3" width="7" height="7" />
-                                <rect x="14" y="14" width="7" height="7" />
-                                <rect x="3" y="14" width="7" height="7" />
+                            <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect height="7" width="7" x="3" y="3"></rect>
+                                <rect height="7" width="7" x="14" y="3"></rect>
+                                <rect height="7" width="7" x="14" y="14"></rect>
+                                <rect height="7" width="7" x="3" y="14"></rect>
                             </svg>
                         </div>
                         <div class="detail-info">
-                            <h4>Portfólio</h4>
-                            <a href="https://sites.google.com/view/portifoliohumbertoreis?usp=sharing" target="_blank"
-                                class="detail-link">Ver Projetos &rarr;</a>
+                            <h4 data-i18n="portfolio_label">Portfólio</h4>
+                            <a class="detail-link" data-i18n="portfolio_link" href="#projetos">Ver Projetos →</a>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-
             <!-- Right Card: Detalhes, Badges de Habilidades e Estatísticas -->
             <div class="glass-card about-card">
                 <div class="about-card-top">
-                    <h3>Transformando dados <span class="text-gradient">em Inteligencia para os negocios</span></h3>
-                    <p class="desc">
-                        Sou um profissional de Dados com foco em transformar informações em estratégias que apoiam a
-                        tomada de decisão e geram resultados para o negócio. Atuo na análise de indicadores,
-                        identificação de oportunidades, otimização de processos e geração de insights que auxiliam
-                        lideranças na definição de ações mais assertivas. Atualmente, estou expandindo minha atuação em
-                        Ciência de Dados e Inteligência Artificial para desenvolver soluções preditivas e orientadas por
-                        dados que contribuam para a eficiência, inovação e crescimento das organizações.
-
+                    <h3><span data-i18n="hero_title_1">Transformando dados complexos</span> <span class="text-gradient"
+                            data-i18n="hero_title_2">em resultados mensuráveis</span></h3>
+                    <p class="desc" data-i18n="about_description">Profissional de Data Analytics e Business Intelligence
+                        com mais de seis anos de experiência desenvolvendo soluções analíticas para operações, finanças,
+                        marketing, saúde e prevenção a fraudes. Combino Power BI, SQL, Snowflake, Microsoft Fabric,
+                        Python e modelagem de dados para transformar bases complexas em KPIs escaláveis, insights
+                        operacionais e soluções de apoio à decisão. Minha trajetória também inclui experiência em
+                        estoque, reposição e operações logísticas, fortalecendo minha visão de processos ponta a ponta.
                     </p>
-
-                    <div class="badge-container">
-                        <span class="badge">Compras</span>
-                        <span class="badge">Antifraude</span>
-                        <span class="badge">Finanças</span>
-                        <span class="badge">Jurídico</span>
-                        <span class="badge">Governaça</span>
-                        <span class="badge">Logística</span>
-                        <span class="badge">Marketing</span>
-                        <span class="badge">Vendas</span>
-                    </div>
+                    <div class="badge-container"><span class="badge" data-i18n="badge_operational">Analytics
+                            Operacional</span><span class="badge" data-i18n="badge_bi">Business Intelligence</span><span
+                            class="badge" data-i18n="badge_fraud">Fraud Analytics</span><span class="badge"
+                            data-i18n="badge_governance">Governança de Dados</span><span class="badge"
+                            data-i18n="badge_process">Melhoria de Processos</span><span class="badge"
+                            data-i18n="badge_kpi">Estratégia de KPIs</span><span class="badge"
+                            data-i18n="badge_snowflake">Snowflake</span><span class="badge"
+                            data-i18n="badge_advanced">Advanced Analytics</span></div>
                 </div>
-
                 <!-- FERRAMENTAS / STACK TÉCNICA -->
+                <div class="hero-actions"><a class="hero-action primary" data-i18n="cta_projects" href="#projetos">Ver
+                        Projetos</a><a class="hero-action secondary" data-i18n="cta_resume"
+                        download="Humberto_Reis_Data_Analytics_Resume.pdf"
+                        href="Humberto_Reis_Data_Analytics_Resume.pdf">Baixar Currículo</a><a
+                        class="hero-action secondary" data-i18n="cta_contact"
+                        href="mailto:humberto_hrs@hotmail.com">Entrar em Contato</a></div>
                 <div class="tools-section">
                     <p class="tools-label"></p>
                     <div class="tools-grid">
@@ -161,16 +490,17 @@
                         <div class="tool-item" title="Power BI">
                             <div class="tool-icon-wrap">
                                 <!-- Logo Power BI moderno: bolt amarelo sobre fundo escuro -->
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28">
-                                    <rect width="32" height="32" rx="4" fill="#1a1a2e" />
+                                <svg height="28" viewbox="0 0 32 32" width="28" xmlns="http://www.w3.org/2000/svg">
+                                    <rect fill="#1a1a2e" height="32" rx="4" width="32"></rect>
                                     <!-- barra esquerda pequena -->
-                                    <rect x="5" y="19" width="5" height="8" rx="1.5" fill="#F2C811" />
+                                    <rect fill="#F2C811" height="8" rx="1.5" width="5" x="5" y="19"></rect>
                                     <!-- barra central média -->
-                                    <rect x="12" y="14" width="5" height="13" rx="1.5" fill="#F2C811" />
+                                    <rect fill="#F2C811" height="13" rx="1.5" width="5" x="12" y="14"></rect>
                                     <!-- barra direita alta -->
-                                    <rect x="19" y="8" width="5" height="19" rx="1.5" fill="#F2C811" opacity="0.5" />
+                                    <rect fill="#F2C811" height="19" opacity="0.5" rx="1.5" width="5" x="19" y="8">
+                                    </rect>
                                     <!-- reflexo topo barra central -->
-                                    <rect x="12" y="14" width="5" height="3" rx="1.5" fill="#fff" opacity="0.3" />
+                                    <rect fill="#fff" height="3" opacity="0.3" rx="1.5" width="5" x="12" y="14"></rect>
                                 </svg>
                             </div>
                             <span>Power BI</span>
@@ -178,13 +508,13 @@
                         <!-- Python -->
                         <div class="tool-item" title="Python">
                             <div class="tool-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28">
+                                <svg height="28" viewbox="0 0 32 32" width="28" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M15.9 3C10.3 3 10.7 5.4 10.7 5.4V8h5.4v1H7.5S4 8.6 4 14.3c0 5.7 3.1 5.5 3.1 5.5h1.8v-2.6s-.1-3.1 3.1-3.1h5.3s3 .1 3-2.9V6c0 0 .4-3-4.4-3zm-2.9 1.7c.5 0 .9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9z"
-                                        fill="#366994" />
+                                        fill="#366994"></path>
                                     <path
                                         d="M16.1 29c5.6 0 5.2-2.4 5.2-2.4V24h-5.4v-1h8.6s3.5.4 3.5-5.3c0-5.7-3.1-5.5-3.1-5.5h-1.8v2.6s.1 3.1-3.1 3.1h-5.3s-3-.1-3 2.9V26s-.4 3 4.4 3zm2.9-1.7c-.5 0-.9-.4-.9-.9s.4-.9.9-.9.9.4.9.9-.4.9-.9.9z"
-                                        fill="#FFD43B" />
+                                        fill="#FFD43B"></path>
                                 </svg>
                             </div>
                             <span>Python</span>
@@ -192,11 +522,12 @@
                         <!-- Excel -->
                         <div class="tool-item" title="Excel">
                             <div class="tool-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28">
-                                    <rect width="32" height="32" rx="4" fill="#217346" />
-                                    <path d="M8 8l5 8-5 8h3.5l3.5-5.6L18 24h3.5l-5-8 5-8H18l-3.5 5.6L11 8z"
-                                        fill="#fff" />
-                                    <rect x="20" y="8" width="6" height="16" rx="1" fill="rgba(255,255,255,0.15)" />
+                                <svg height="28" viewbox="0 0 32 32" width="28" xmlns="http://www.w3.org/2000/svg">
+                                    <rect fill="#217346" height="32" rx="4" width="32"></rect>
+                                    <path d="M8 8l5 8-5 8h3.5l3.5-5.6L18 24h3.5l-5-8 5-8H18l-3.5 5.6L11 8z" fill="#fff">
+                                    </path>
+                                    <rect fill="rgba(255,255,255,0.15)" height="16" rx="1" width="6" x="20" y="8">
+                                    </rect>
                                 </svg>
                             </div>
                             <span>Excel</span>
@@ -204,10 +535,10 @@
                         <!-- PowerPoint -->
                         <div class="tool-item" title="PowerPoint">
                             <div class="tool-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28">
-                                    <rect width="32" height="32" rx="4" fill="#D04526" />
-                                    <path d="M8 8h8c2.8 0 5 2.2 5 5s-2.2 5-5 5h-4v6H8V8z" fill="#fff" />
-                                    <path d="M12 11v4h4c1.1 0 2-.9 2-2s-.9-2-2-2h-4z" fill="#D04526" />
+                                <svg height="28" viewbox="0 0 32 32" width="28" xmlns="http://www.w3.org/2000/svg">
+                                    <rect fill="#D04526" height="32" rx="4" width="32"></rect>
+                                    <path d="M8 8h8c2.8 0 5 2.2 5 5s-2.2 5-5 5h-4v6H8V8z" fill="#fff"></path>
+                                    <path d="M12 11v4h4c1.1 0 2-.9 2-2s-.9-2-2-2h-4z" fill="#D04526"></path>
                                 </svg>
                             </div>
                             <span>PowerPoint</span>
@@ -215,17 +546,17 @@
                         <!-- Snowflake -->
                         <div class="tool-item" title="Snowflake">
                             <div class="tool-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28">
-                                    <rect width="32" height="32" rx="4" fill="#29B5E8" />
-                                    <line x1="16" y1="5" x2="16" y2="27" stroke="#fff" stroke-width="2.5"
-                                        stroke-linecap="round" />
-                                    <line x1="5" y1="16" x2="27" y2="16" stroke="#fff" stroke-width="2.5"
-                                        stroke-linecap="round" />
-                                    <line x1="8.5" y1="8.5" x2="23.5" y2="23.5" stroke="#fff" stroke-width="2.5"
-                                        stroke-linecap="round" />
-                                    <line x1="23.5" y1="8.5" x2="8.5" y2="23.5" stroke="#fff" stroke-width="2.5"
-                                        stroke-linecap="round" />
-                                    <circle cx="16" cy="16" r="2.5" fill="#fff" />
+                                <svg height="28" viewbox="0 0 32 32" width="28" xmlns="http://www.w3.org/2000/svg">
+                                    <rect fill="#29B5E8" height="32" rx="4" width="32"></rect>
+                                    <line stroke="#fff" stroke-linecap="round" stroke-width="2.5" x1="16" x2="16" y1="5"
+                                        y2="27"></line>
+                                    <line stroke="#fff" stroke-linecap="round" stroke-width="2.5" x1="5" x2="27" y1="16"
+                                        y2="16"></line>
+                                    <line stroke="#fff" stroke-linecap="round" stroke-width="2.5" x1="8.5" x2="23.5"
+                                        y1="8.5" y2="23.5"></line>
+                                    <line stroke="#fff" stroke-linecap="round" stroke-width="2.5" x1="23.5" x2="8.5"
+                                        y1="8.5" y2="23.5"></line>
+                                    <circle cx="16" cy="16" fill="#fff" r="2.5"></circle>
                                 </svg>
                             </div>
                             <span>Snowflake</span>
@@ -233,13 +564,13 @@
                         <!-- SQL -->
                         <div class="tool-item" title="SQL">
                             <div class="tool-icon-wrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28">
-                                    <rect width="32" height="32" rx="4" fill="#336791" />
-                                    <ellipse cx="16" cy="10" rx="9" ry="4" fill="#fff" opacity="0.9" />
+                                <svg height="28" viewbox="0 0 32 32" width="28" xmlns="http://www.w3.org/2000/svg">
+                                    <rect fill="#336791" height="32" rx="4" width="32"></rect>
+                                    <ellipse cx="16" cy="10" fill="#fff" opacity="0.9" rx="9" ry="4"></ellipse>
                                     <path d="M7 10v4c0 2.2 4 4 9 4s9-1.8 9-4v-4c-1.8 1.6-5 2.5-9 2.5S8.8 11.6 7 10z"
-                                        fill="#fff" opacity="0.7" />
+                                        fill="#fff" opacity="0.7"></path>
                                     <path d="M7 14v4c0 2.2 4 4 9 4s9-1.8 9-4v-4c-1.8 1.6-5 2.5-9 2.5S8.8 15.6 7 14z"
-                                        fill="#fff" opacity="0.5" />
+                                        fill="#fff" opacity="0.5"></path>
                                 </svg>
                             </div>
                             <span>SQL</span>
@@ -248,275 +579,367 @@
                         <div class="tool-item" title="Scikit-learn">
                             <div class="tool-icon-wrap">
                                 <!-- Logo Scikit-learn atual: fundo azul escuro + arcos laranja -->
-                                <img src="Portifolio.2/assets/learn.png" alt="" width="28" height="28">
-                                <rect width="32" height="32" rx="4" fill="#1c2b4a" />
+                                <img alt="" height="28" src="Portifolio.2/assets/learn.png" width="28" />
+                                <rect fill="#1c2b4a" height="32" rx="4" width="32"></rect>
                                 <!-- arco externo laranja -->
-                                <path d="M5 21 A11 11 0 0 1 27 21" stroke="#F89939" stroke-width="3" fill="none"
-                                    stroke-linecap="round" />
+                                <path d="M5 21 A11 11 0 0 1 27 21" fill="none" stroke="#F89939" stroke-linecap="round"
+                                    stroke-width="3"></path>
                                 <!-- arco interno azul claro -->
-                                <path d="M9 21 A7 7 0 0 1 23 21" stroke="#29B5E8" stroke-width="2.5" fill="none"
-                                    stroke-linecap="round" />
+                                <path d="M9 21 A7 7 0 0 1 23 21" fill="none" stroke="#29B5E8" stroke-linecap="round"
+                                    stroke-width="2.5"></path>
                                 <!-- ponteiro -->
-                                <line x1="16" y1="21" x2="21" y2="13" stroke="#fff" stroke-width="2"
-                                    stroke-linecap="round" />
+                                <line stroke="#fff" stroke-linecap="round" stroke-width="2" x1="16" x2="21" y1="21"
+                                    y2="13"></line>
                                 <!-- centro -->
-                                <circle cx="16" cy="21" r="2.5" fill="#F89939" />
-                                <circle cx="16" cy="21" r="1" fill="#fff" />
-                                </svg>
+                                <circle cx="16" cy="21" fill="#F89939" r="2.5"></circle>
+                                <circle cx="16" cy="21" fill="#fff" r="1"></circle>
                             </div>
                             <span>Scikit-learn</span>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
-
         <!-- SEÇÃO LINHA DO TEMPO (MID SECTION) -->
         <section id="trajetoria">
             <div class="section-title">
-                <p>Linha do Tempo</p>
-                <h2>Minha Jornada Profissional</h2>
+                <p data-i18n="timeline_label">Linha do Tempo</p>
+                <h2 data-i18n="timeline_title">Experiência Profissional</h2>
             </div>
-
             <div class="timeline-container">
                 <!-- Central Line Track -->
                 <div class="timeline-track"></div>
                 <!-- Dynamic Glow Follower Ball -->
                 <div class="timeline-glow-ball" id="glow-ball"></div>
-
                 <!-- Timeline Milestones -->
                 <!-- Item 1 (Left Card) -->
+
+                <!-- Item 2 (Right Card) -->
+
+                <!-- Item 3 (Left Card) -->
+
                 <div class="timeline-item left">
                     <div class="timeline-dot"></div>
                     <div class="glass-card timeline-card" data-index="0">
                         <div class="timeline-card-header">
                             <div class="timeline-icon-wrapper">
                                 <div class="timeline-icon-ring"></div>
-                                <div class="timeline-icon">
-                                    <!-- ✏️ Troque o src pelo caminho do seu ícone SVG -->
-                                    <img src="Portifolio.2/assets/logo.png" alt="Ícone Freelance"
-                                        class="timeline-icon-img" width="60" height="60" loading="lazy"
-                                        decoding="async">
-                                </div>
-                            </div>
-                            <span class="timeline-date">2024 - Presente</span>
+                                <div class="timeline-icon"><img alt="Logo Levva" class="timeline-icon-img"
+                                        decoding="async" height="60" loading="lazy" src="Portifolio.2/assets/logo.png"
+                                        width="60" /></div>
+                            </div><span class="timeline-date" data-i18n="present_date">2024 - Presente</span>
                         </div>
-                        <h3>Levva|Data Analyst/Data Scientist</h3>
+                        <h3 data-i18n="levva_role">Levva | Analista de Dados / Consultor de BI</h3>
                         <ul class="timeline-topics">
-                            <li>Transformação de dados em decisões estratégicas</li>
-                            <li>Governança de dados e definição de indicadores</li>
-                            <li>Desenvolvimento de soluções analíticas para negócio</li>
-                            <li>Geração de insights para eficiência operacional e mitigação de riscos</li>
+                            <li data-i18n="levva_1">Desenvolvimento de dashboards executivos e operacionais em Power BI
+                                para performance, riscos e prevenção a fraudes.</li>
+                            <li data-i18n="levva_2">Construção de modelos analíticos e processos ETL/ELT com Snowflake,
+                                Microsoft Fabric, Oracle e SQL Server.</li>
+                            <li data-i18n="levva_3">Análise de grandes volumes de dados para identificar anomalias,
+                                ineficiências e oportunidades de melhoria.</li>
+                            <li data-i18n="levva_4">Definição de KPIs escaláveis em parceria com áreas de negócio,
+                                tecnologia e gestão.</li>
+                            <li data-i18n="levva_5">Automação de rotinas de dados e relatórios, reduzindo atividades
+                                manuais e aumentando a disponibilidade da informação.</li>
+                            <li data-i18n="levva_6">Atuação como ponto focal entre stakeholders e times técnicos no
+                                levantamento, validação e entrega de soluções.</li>
                         </ul>
                     </div>
                 </div>
-
-                <!-- Item 2 (Right Card) -->
                 <div class="timeline-item right">
                     <div class="timeline-dot"></div>
                     <div class="glass-card timeline-card" data-index="1">
                         <div class="timeline-card-header">
                             <div class="timeline-icon-wrapper">
                                 <div class="timeline-icon-ring"></div>
-                                <div class="timeline-icon">
-                                    <!-- ✏️ Troque o src pelo caminho do seu ícone SVG -->
-                                    <img src="Portifolio.2/assets/download.png" alt="Ícone Tech Lead"
-                                        class="timeline-icon-img" width="60" height="60" loading="lazy"
-                                        decoding="async">
-                                </div>
-                            </div>
-                            <span class="timeline-date">2022 - 2024</span>
+                                <div class="timeline-icon"><img alt="Logo Heyfit" class="timeline-icon-img"
+                                        decoding="async" height="60" loading="lazy"
+                                        src="Portifolio.2/assets/download.png" width="60" /></div>
+                            </div><span class="timeline-date" data-i18n="heyfit_date">2022 - 2024</span>
                         </div>
-                        <h3>Heyfit|Data Analytics/Business Intelligence</h3>
+                        <h3 data-i18n="heyfit_role">Heyfit | Analista de Dados / BI</h3>
                         <ul class="timeline-topics">
-                            <li>Apoio às áreas de Marketing, Finanças e Operações.</li>
-                            <li>Construção de indicadores e dashboards executivos.</li>
-                            <li>Análise de desempenho e experiência do cliente.</li>
-                            <li>Disseminação da cultura Data-Driven na organização.</li>
+                            <li data-i18n="heyfit_1">Desenvolvimento de dashboards em Power BI e Excel para Marketing,
+                                Finanças, Vendas e Operações.</li>
+                            <li data-i18n="heyfit_2">Criação de KPIs para receita, comportamento do cliente, desempenho
+                                operacional e crescimento do negócio.</li>
+                            <li data-i18n="heyfit_3">Análise de NPS e experiência do cliente para identificar
+                                oportunidades de melhoria.</li>
+                            <li data-i18n="heyfit_4">Tradução de análises complexas em recomendações objetivas para
+                                stakeholders.</li>
+                            <li data-i18n="heyfit_5">Padronização de indicadores e apoio à evolução da cultura orientada
+                                por dados.</li>
                         </ul>
                     </div>
                 </div>
-
-                <!-- Item 3 (Left Card) -->
                 <div class="timeline-item left">
                     <div class="timeline-dot"></div>
                     <div class="glass-card timeline-card" data-index="2">
                         <div class="timeline-card-header">
                             <div class="timeline-icon-wrapper">
                                 <div class="timeline-icon-ring"></div>
-                                <div class="timeline-icon">
-                                    <!-- ✏️ Troque o src pelo caminho do seu ícone SVG -->
-                                    <img src="Portifolio.2/assets/images.png" alt="Ícone Full-Stack"
-                                        class="timeline-icon-img" width="60" height="60" loading="lazy"
-                                        decoding="async">
-                                </div>
-                            </div>
-                            <span class="timeline-date">2014 - 2023</span>
+                                <div class="timeline-icon"><img alt="Logo Santa Marcelina" class="timeline-icon-img"
+                                        decoding="async" height="60" loading="lazy" src="Portifolio.2/assets/images.png"
+                                        width="60" /></div>
+                            </div><span class="timeline-date" data-i18n="santa_data_date">2020 - 2023</span>
                         </div>
-                        <h3>Santa Marcelina|Assistent Administrative/ Data Analyst</h3>
+                        <h3 data-i18n="santa_data_role">Santa Marcelina | Analista de Dados</h3>
                         <ul class="timeline-topics">
-                            <li>Suporte à gestão por meio de análises e indicadores.</li>
-                            <li>Automação e melhoria de processos administrativos.</li>
-                            <li>Desenvolvimento de relatórios gerenciais.</li>
-                            <li>Identificação de oportunidades para aumento da eficiência operacional.</li>
+                            <li data-i18n="santa_data_1">Desenvolvimento de dashboards em Power BI integrados a bases
+                                SQL para monitorar produtividade e desempenho operacional.</li>
+                            <li data-i18n="santa_data_2">Estruturação de bases e modelos analíticos com Power BI, SQL,
+                                Python e Excel.</li>
+                            <li data-i18n="santa_data_3">Automação de processos de coleta, tratamento e geração de
+                                relatórios.</li>
+                            <li data-i18n="santa_data_4">Apoio a decisões sobre produtividade, alocação de recursos e
+                                eficiência das equipes.</li>
+                            <li data-i18n="santa_data_5">Participação em iniciativas de digitalização e melhoria
+                                contínua baseadas em evidências.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card" data-index="3">
+                        <div class="timeline-card-header">
+                            <div class="timeline-icon-wrapper">
+                                <div class="timeline-icon-ring"></div>
+                                <div class="timeline-icon"><img alt="Logo Santa Marcelina" class="timeline-icon-img"
+                                        decoding="async" height="60" loading="lazy" src="Portifolio.2/assets/images.png"
+                                        width="60" /></div>
+                            </div><span class="timeline-date" data-i18n="santa_admin_date">2014 - 2019</span>
+                        </div>
+                        <h3 data-i18n="santa_admin_role">Santa Marcelina | Assistente Administrativo</h3>
+                        <ul class="timeline-topics">
+                            <li data-i18n="santa_admin_1">Suporte à gestão por meio de relatórios operacionais e
+                                indicadores administrativos.</li>
+                            <li data-i18n="santa_admin_2">Automação de controles e relatórios com Excel, Power BI e SQL.
+                            </li>
+                            <li data-i18n="santa_admin_3">Monitoramento de frequência, materiais, equipamentos e
+                                processos internos.</li>
+                            <li data-i18n="santa_admin_4">Construção da base analítica que sustentou a transição para a
+                                função de Analista de Dados.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card" data-index="4">
+                        <div class="timeline-card-header">
+                            <div class="timeline-icon-wrapper">
+                                <div class="timeline-icon-ring"></div>
+                                <div class="timeline-icon"><img alt="Logo Magazine Luiza" class="timeline-icon-img"
+                                        decoding="async" height="60" loading="lazy"
+                                        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                                        src="Portifolio.2/assets/magalu.png" width="60" /><span
+                                        class="timeline-fallback-logo">ML</span></div>
+                            </div><span class="timeline-date" data-i18n="magalu_date">2011 - 2013</span>
+                        </div>
+                        <h3 data-i18n="magalu_role">Magazine Luiza | Estoquista / Operações Logísticas</h3>
+                        <ul class="timeline-topics">
+                            <li data-i18n="magalu_1">Controle de inventário, movimentação de estoque e reposição de
+                                produtos.</li>
+                            <li data-i18n="magalu_2">Monitoramento de níveis de estoque e padrões de vendas para apoiar
+                                reposições.</li>
+                            <li data-i18n="magalu_3">Colaboração com as equipes de vendas e logística na distribuição de
+                                produtos.</li>
+                            <li data-i18n="magalu_4">Acompanhamento de indicadores operacionais de estoque e
+                                disponibilidade.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
         <!-- SEÇÃO FORMAÇÕES (EDUCATION GRID) -->
+        <section id="projetos">
+            <div class="section-title">
+                <p data-i18n="projects_label">Impacto orientado por dados</p>
+                <h2 data-i18n="projects_title">Projetos &amp; Estudos de Caso</h2>
+            </div>
+            <div class="projects-grid">
+                <article class="glass-card project-card">
+                    <div class="project-card-top"><span class="project-number">01</span><span class="project-status"
+                            data-i18n="project_1_status">Projeto aplicado</span></div>
+                    <h3 data-i18n="project_1_title">Fraud Risk Analytics</h3>
+                    <p class="project-description" data-i18n="project_1_desc">Solução analítica para priorizar casos com
+                        maior probabilidade de fraude e apoiar a produtividade da operação.</p>
+                    <div class="project-tools">
+                        <span>Snowflake</span><span>SQL</span><span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>XGBoost</span><span>Streamlit</span>
+                    </div>
+                    <p class="project-outcome" data-i18n="project_1_outcome">Foco de negócio: reduzir exposição a perdas
+                        e direcionar a análise para os casos de maior risco.</p>
+                </article>
+                <article class="glass-card project-card">
+                    <div class="project-card-top"><span class="project-number">02</span><span class="project-status"
+                            data-i18n="project_2_status">Projeto aplicado</span></div>
+                    <h3 data-i18n="project_2_title">Power BI Governance &amp; Capacity</h3>
+                    <p class="project-description" data-i18n="project_2_desc">Indicadores para monitorar falhas de
+                        atualização, adoção de dashboards, frequência de acessos e oportunidades de otimização de
+                        capacidade.</p>
+                    <div class="project-tools"><span>Power BI Service</span><span>DAX</span><span>Power
+                            Query</span><span>SQL</span><span>Governança</span></div>
+                    <p class="project-outcome" data-i18n="project_2_outcome">Foco de negócio: reduzir sobrecarga,
+                        priorizar ativos relevantes e melhorar a confiabilidade do ambiente analítico.</p>
+                </article>
+                <article class="glass-card project-card">
+                    <div class="project-card-top"><span class="project-number">03</span><span class="project-status"
+                            data-i18n="project_3_status">Estudo de caso em desenvolvimento</span></div>
+                    <h3 data-i18n="project_3_title">Supply Chain Analytics</h3>
+                    <p class="project-description" data-i18n="project_3_desc">Dashboard analítico para identificar risco
+                        de ruptura, excesso de estoque, atrasos de fornecedores e oportunidades de reposição.</p>
+                    <div class="project-tools"><span>Power
+                            BI</span><span>SQL</span><span>Snowflake</span><span>Python</span><span>Forecasting</span>
+                    </div>
+                    <p class="project-outcome" data-i18n="project_3_outcome">KPIs propostos: giro de estoque, OTIF, fill
+                        rate, stockout rate, lead time e forecast accuracy.</p>
+                </article>
+            </div>
+        </section>
         <section id="formacoes">
             <div class="section-title">
-                <p>Educação</p>
-                <h2>Formações & Certificações</h2>
+                <p data-i18n="education_label">Educação</p>
+                <h2 data-i18n="education_title">Formações &amp; Certificações</h2>
             </div>
-
-            <div class="formacoes-grid">
-
-                <!-- Card 1 -->
-                <div class="glass-card formacao-card" id="formacao-card-1">
-                    <div class="formacao-card-header">
-                        <div class="formacao-icon-wrapper">
-                            <div class="formacao-icon-ring"></div>
-                            <div class="formacao-icon">
-                                <img src="Portifolio.2/assets/1767878532753.jfif" alt="Logo Univesp"
-                                    class="formacao-logo-img" width="56" height="56" loading="lazy" decoding="async">
+            <div class="education-group">
+                <h3 class="education-group-title" data-i18n="education_group_data">Dados e Negócios</h3>
+                <div class="formacoes-grid">
+                    <div class="glass-card formacao-card" id="formacao-card-1">
+                        <div class="formacao-card-header">
+                            <div class="formacao-icon-wrapper">
+                                <div class="formacao-icon-ring"></div>
+                                <div class="formacao-icon">
+                                    <img alt="Logo Univesp" class="formacao-logo-img" decoding="async" height="56"
+                                        loading="lazy" src="Portifolio.2/assets/1767878532753.jfif" width="56" />
+                                </div>
                             </div>
+                            <span class="formacao-date">Univesp</span> <span class="formacao-date"
+                                data-i18n="edu_date_1">2024 - Prev. 2028</span>
                         </div>
-                        <span class="formacao-date">Univesp</span> <span class="formacao-date">2024/2028</span>
+                        <h3 data-i18n="degree_data_science">Bacharel em Ciência de Dados</h3>
                     </div>
-                    <h3>Bacharel em Ciência de Dados</h3>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="glass-card formacao-card" id="formacao-card-2">
-                    <div class="formacao-card-header">
-                        <div class="formacao-icon-wrapper">
-                            <div class="formacao-icon-ring"></div>
-                            <div class="formacao-icon">
-                                <img src="Portifolio.2/assets/impacta_tecnologia_logo.jfif" alt="Logo Impacta"
-                                    class="formacao-logo-img" width="56" height="56" loading="lazy" decoding="async">
+                    <div class="glass-card formacao-card" id="formacao-card-2">
+                        <div class="formacao-card-header">
+                            <div class="formacao-icon-wrapper">
+                                <div class="formacao-icon-ring"></div>
+                                <div class="formacao-icon">
+                                    <img alt="Logo Impacta" class="formacao-logo-img" decoding="async" height="56"
+                                        loading="lazy" src="Portifolio.2/assets/impacta_tecnologia_logo.jfif"
+                                        width="56" />
+                                </div>
                             </div>
+                            <span class="formacao-date">Faculdade Impacta</span> <span class="formacao-date"
+                                data-i18n="edu_date_2">2024 - Prev. 2026</span>
                         </div>
-                        <span class="formacao-date">Faculdade Impacta</span> <span
-                            class="formacao-date">2024/2027</span>
+                        <h3 data-i18n="degree_database">Tecnologia em Banco de Dados</h3>
                     </div>
-                    <h3>Tecnologia em Banco de Dados</h3>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="glass-card formacao-card" id="formacao-card-3">
-                    <div class="formacao-card-header">
-                        <div class="formacao-icon-wrapper">
-                            <div class="formacao-icon-ring"></div>
-                            <div class="formacao-icon">
-                                <img src="Portifolio.2/assets/preditiva_analytics_logo.jfif"
-                                    alt="Logo Preditiva Analytics" class="formacao-logo-img" width="56" height="56"
-                                    loading="lazy" decoding="async">
+                    <div class="glass-card formacao-card" id="formacao-card-3">
+                        <div class="formacao-card-header">
+                            <div class="formacao-icon-wrapper">
+                                <div class="formacao-icon-ring"></div>
+                                <div class="formacao-icon">
+                                    <img alt="Logo Preditiva Analytics" class="formacao-logo-img" decoding="async"
+                                        height="56" loading="lazy"
+                                        src="Portifolio.2/assets/preditiva_analytics_logo.jfif" width="56" />
+                                </div>
                             </div>
+                            <span class="formacao-date">Preditiva Analytics</span> <span class="formacao-date"
+                                data-i18n="edu_date_3">Concluído em 2024</span>
                         </div>
-                        <span class="formacao-date">Preditiva Anlytics</span> <span
-                            class="formacao-date">2023/2024</span>
+                        <h3 data-i18n="degree_analytics">Formação em Data Analytics</h3>
                     </div>
-                    <h3>Formação em Data Analytics</h3>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="glass-card formacao-card" id="formacao-card-4">
-                    <div class="formacao-card-header">
-                        <div class="formacao-icon-wrapper">
-                            <div class="formacao-icon-ring"></div>
-                            <div class="formacao-icon">
-                                <img src="Portifolio.2/assets/uniminas_ead_logo.jfif" alt="Logo Uniminas"
-                                    class="formacao-logo-img" width="56" height="56" loading="lazy" decoding="async">
+                    <div class="glass-card formacao-card" id="formacao-card-4">
+                        <div class="formacao-card-header">
+                            <div class="formacao-icon-wrapper">
+                                <div class="formacao-icon-ring"></div>
+                                <div class="formacao-icon">
+                                    <img alt="Logo Uniminas" class="formacao-logo-img" decoding="async" height="56"
+                                        loading="lazy" src="Portifolio.2/assets/uniminas_ead_logo.jfif" width="56" />
+                                </div>
                             </div>
+                            <span class="formacao-date">Uniminas Ead</span> <span class="formacao-date"
+                                data-i18n="edu_date_4">Concluído em 2024</span>
                         </div>
-                        <span class="formacao-date">Uniminas Ead</span> <span class="formacao-date">2023/2024</span>
+                        <h3 data-i18n="degree_mba">MBA Executivo em Inteligência Comercial e de Mercado</h3>
                     </div>
-                    <h3>MBA Executivo em Inteligência Comercial e de Mercado</h3>
                 </div>
-
-                <!-- Card 5 -->
-                <div class="glass-card formacao-card" id="formacao-card-5">
-                    <div class="formacao-card-header">
-                        <div class="formacao-icon-wrapper">
-                            <div class="formacao-icon-ring"></div>
-                            <div class="formacao-icon">
-                                <img src="Portifolio.2/assets/universidadecruzeirodosul_logo.jfif"
-                                    alt="Logo Cruzeiro do Sul" class="formacao-logo-img" width="56" height="56"
-                                    loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                        <span class="formacao-date">Unicsul</span> <span class="formacao-date">2016/2019</span>
-                    </div>
-                    <h3>Bacharel em Educação Física</h3>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="glass-card formacao-card" id="formacao-card-6">
-                    <div class="formacao-card-header">
-                        <div class="formacao-icon-wrapper">
-                            <div class="formacao-icon-ring"></div>
-                            <div class="formacao-icon">
-                                <img src="Portifolio.2/assets/America (1).png" alt="Logo Uniamérica"
-                                    class="formacao-logo-img" width="56" height="56" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                        <span class="formacao-date">Uniamérica</span> <span class="formacao-date">2021/2022</span>
-                    </div>
-                    <h3>Pós Graduação em Fisiologia do Exercício</h3>
-                </div>
-
-                <!-- Card 7 -->
-                <div class="glass-card formacao-card" id="formacao-card-7">
-                    <div class="formacao-card-header">
-                        <div class="formacao-icon-wrapper">
-                            <div class="formacao-icon-ring"></div>
-                            <div class="formacao-icon">
-                                <img src="Portifolio.2/assets/anhanguera_educacional_sa_logo.jfif" alt="Logo Anhanguera" class="formacao-logo-img"
-                                    width="56" height="56" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                        <span class="formacao-date">Anhanguera</span> <span class="formacao-date"> 2020/2020</span>
-                    </div>
-                    <h3>Pós Graduação em Saúde Pública com Ênfase em Saúde da Família</h3>
-                </div>
-
-                <!-- Card 8 -->
-                <div class="glass-card formacao-card" id="formacao-card-8">
-                    <div class="formacao-card-header">
-                        <div class="formacao-icon-wrapper">
-                            <div class="formacao-icon-ring"></div>
-                            <div class="formacao-icon">
-                                <img src="Portifolio.2/assets/senac.png" alt="Logo Senac" class="formacao-logo-img"
-                                    width="56" height="56" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                        <span class="formacao-date">Senac</span> <span class="formacao-date">2013/2015</span>
-                    </div>
-                    <h3>Técnico em Segurança do Trabalho</h3>
-                </div>
-
             </div>
-
-
+            <div class="education-group additional-education">
+                <h3 class="education-group-title" data-i18n="education_group_additional">Formações Complementares</h3>
+                <div class="formacoes-grid">
+                    <div class="glass-card formacao-card" id="formacao-card-5">
+                        <div class="formacao-card-header">
+                            <div class="formacao-icon-wrapper">
+                                <div class="formacao-icon-ring"></div>
+                                <div class="formacao-icon">
+                                    <img alt="Logo Cruzeiro do Sul" class="formacao-logo-img" decoding="async"
+                                        height="56" loading="lazy"
+                                        src="Portifolio.2/assets/universidadecruzeirodosul_logo.jfif" width="56" />
+                                </div>
+                            </div>
+                            <span class="formacao-date">Unicsul</span> <span class="formacao-date"
+                                data-i18n="edu_date_5">Concluído em 2019</span>
+                        </div>
+                        <h3 data-i18n="degree_physical_education">Bacharel em Educação Física</h3>
+                    </div>
+                    <div class="glass-card formacao-card" id="formacao-card-6">
+                        <div class="formacao-card-header">
+                            <div class="formacao-icon-wrapper">
+                                <div class="formacao-icon-ring"></div>
+                                <div class="formacao-icon">
+                                    <img alt="Logo Uniamérica" class="formacao-logo-img" decoding="async" height="56"
+                                        loading="lazy" src="Portifolio.2/assets/America (1).png" width="56" />
+                                </div>
+                            </div>
+                            <span class="formacao-date">Uniamérica</span> <span class="formacao-date"
+                                data-i18n="edu_date_6">Concluído em 2022</span>
+                        </div>
+                        <h3 data-i18n="degree_exercise_physiology">Pós Graduação em Fisiologia do Exercício</h3>
+                    </div>
+                    <div class="glass-card formacao-card" id="formacao-card-7">
+                        <div class="formacao-card-header">
+                            <div class="formacao-icon-wrapper">
+                                <div class="formacao-icon-ring"></div>
+                                <div class="formacao-icon">
+                                    <img alt="Logo Anhanguera" class="formacao-logo-img" decoding="async" height="56"
+                                        loading="lazy" src="Portifolio.2/assets/anhanguera_educacional_sa_logo.jfif"
+                                        width="56" />
+                                </div>
+                            </div>
+                            <span class="formacao-date">Anhanguera</span> <span class="formacao-date"
+                                data-i18n="edu_date_7">Concluído em 2020</span>
+                        </div>
+                        <h3 data-i18n="degree_public_health">Pós Graduação em Saúde Pública com Ênfase em Saúde da
+                            Família
+                        </h3>
+                    </div>
+                    <div class="glass-card formacao-card" id="formacao-card-8">
+                        <div class="formacao-card-header">
+                            <div class="formacao-icon-wrapper">
+                                <div class="formacao-icon-ring"></div>
+                                <div class="formacao-icon">
+                                    <img alt="Logo Senac" class="formacao-logo-img" decoding="async" height="56"
+                                        loading="lazy" src="Portifolio.2/assets/senac.png" width="56" />
+                                </div>
+                            </div>
+                            <span class="formacao-date">Senac</span> <span class="formacao-date"
+                                data-i18n="edu_date_8">Concluído em 2015</span>
+                        </div>
+                        <h3 data-i18n="degree_safety">Técnico em Segurança do Trabalho</h3>
+                    </div>
+                </div>
+            </div>
         </section>
-
-
-
     </main>
-
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <a href="#" class="footer-logo">HUMBERTO<span class="logo-dot"></span></a>
+            <a class="footer-logo" href="#">HUMBERTO<span class="logo-dot"></span></a>
             <ul class="footer-nav">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#trajetoria">Trajetória</a></li>
-                <li><a href="#formacoes">Formações</a></li>
+                <li><a data-i18n="footer_home" href="#inicio">Início</a></li>
+                <li><a data-i18n="footer_experience" href="#trajetoria">Trajetória</a></li>
+                <li><a data-i18n="footer_projects" href="#projetos">Projetos</a></li>
+                <li><a data-i18n="footer_education" href="#formacoes">Formações</a></li>
             </ul>
-
             <!-- 1. ESPAÇO PARA VOCÊ COLOCAR OS ÍCONES DAS REDES SOCIAIS -->
             <div class="footer-custom-socials"
                 style="display: flex; gap: 1rem; justify-content: center; min-height: 45px; align-items: center;">
@@ -530,19 +953,64 @@
                 </a>
                 -->
             </div>
-
             <!-- 2. ESPAÇO PARA REDES SOCIAIS COM O ÍCONE DO WHATSAPP AO LADO DO LINKEDIN -->
-
-            <p class="copyright">&copy; 2026 Humberto. Todos os direitos reservados. Feito com amor e código.</p>
+            <p class="copyright" data-i18n="copyright">© 2026 Humberto. Todos os direitos reservados. Feito com amor e
+                código.</p>
         </div>
     </footer>
-
     <!-- Lucide Icons Library (pinned version for caching) -->
-    <script src="https://unpkg.com/lucide@0.263.1" defer></script>
+    <script defer="" src="https://unpkg.com/lucide@0.263.1"></script>
     <!-- Script Logic -->
-    <script src="app.js" defer></script>
+    <script id="portfolio-translations">(() => {
+            const translations = { "pt": { "page_title": "Humberto Reis | Data Analytics & Business Intelligence", "nav_home": "Início", "nav_experience": "Trajetória", "nav_projects": "Projetos", "nav_education": "Formações", "nav_contact": "Contato", "language_group": "Selecionar idioma", "profile_role": "Analista Sênior de Data Analytics & BI", "location_label": "Localização", "location_value": "São Paulo, Brasil", "email_label": "E-mail", "portfolio_label": "Projetos", "portfolio_link": "Ver Projetos →", "hero_title_1": "Transformando dados complexos", "hero_title_2": "em resultados mensuráveis", "about_description": "Profissional de Data Analytics e Business Intelligence com mais de seis anos de experiência desenvolvendo soluções analíticas para operações, finanças, marketing, saúde e prevenção a fraudes. Combino Power BI, SQL, Snowflake, Microsoft Fabric, Python e modelagem de dados para transformar bases complexas em KPIs escaláveis, insights operacionais e soluções de apoio à decisão. Minha trajetória também inclui experiência em estoque, reposição e operações logísticas, fortalecendo minha visão de processos ponta a ponta.", "badge_operational": "Analytics Operacional", "badge_bi": "Business Intelligence", "badge_fraud": "Fraud Analytics", "badge_governance": "Governança de Dados", "badge_process": "Melhoria de Processos", "badge_kpi": "Estratégia de KPIs", "badge_snowflake": "Snowflake", "badge_advanced": "Advanced Analytics", "cta_projects": "Ver Projetos", "cta_resume": "Baixar Currículo", "cta_contact": "Entrar em Contato", "timeline_label": "Linha do Tempo", "timeline_title": "Experiência Profissional", "present_date": "2024 - Presente", "heyfit_date": "2022 - 2024", "santa_data_date": "2020 - 2023", "santa_admin_date": "2014 - 2019", "magalu_date": "2011 - 2013", "levva_role": "Levva | Analista de Dados / Consultor de BI", "levva_1": "Desenvolvimento de dashboards executivos e operacionais em Power BI para performance, riscos e prevenção a fraudes.", "levva_2": "Construção de modelos analíticos e processos ETL/ELT com Snowflake, Microsoft Fabric, Oracle e SQL Server.", "levva_3": "Análise de grandes volumes de dados para identificar anomalias, ineficiências e oportunidades de melhoria.", "levva_4": "Definição de KPIs escaláveis em parceria com áreas de negócio, tecnologia e gestão.", "levva_5": "Automação de rotinas de dados e relatórios, reduzindo atividades manuais e aumentando a disponibilidade da informação.", "levva_6": "Atuação como ponto focal entre stakeholders e times técnicos no levantamento, validação e entrega de soluções.", "heyfit_role": "Heyfit | Analista de Dados / BI", "heyfit_1": "Desenvolvimento de dashboards em Power BI e Excel para Marketing, Finanças, Vendas e Operações.", "heyfit_2": "Criação de KPIs para receita, comportamento do cliente, desempenho operacional e crescimento do negócio.", "heyfit_3": "Análise de NPS e experiência do cliente para identificar oportunidades de melhoria.", "heyfit_4": "Tradução de análises complexas em recomendações objetivas para stakeholders.", "heyfit_5": "Padronização de indicadores e apoio à evolução da cultura orientada por dados.", "santa_data_role": "Santa Marcelina | Analista de Dados", "santa_data_1": "Desenvolvimento de dashboards em Power BI integrados a bases SQL para monitorar produtividade e desempenho operacional.", "santa_data_2": "Estruturação de bases e modelos analíticos com Power BI, SQL, Python e Excel.", "santa_data_3": "Automação de processos de coleta, tratamento e geração de relatórios.", "santa_data_4": "Apoio a decisões sobre produtividade, alocação de recursos e eficiência das equipes.", "santa_data_5": "Participação em iniciativas de digitalização e melhoria contínua baseadas em evidências.", "santa_admin_role": "Santa Marcelina | Assistente Administrativo", "santa_admin_1": "Suporte à gestão por meio de relatórios operacionais e indicadores administrativos.", "santa_admin_2": "Automação de controles e relatórios com Excel, Power BI e SQL.", "santa_admin_3": "Monitoramento de frequência, materiais, equipamentos e processos internos.", "santa_admin_4": "Construção da base analítica que sustentou a transição para a função de Analista de Dados.", "magalu_role": "Magazine Luiza | Estoquista / Operações Logísticas", "magalu_1": "Controle de inventário, movimentação de estoque e reposição de produtos.", "magalu_2": "Monitoramento de níveis de estoque e padrões de vendas para apoiar reposições.", "magalu_3": "Colaboração com as equipes de vendas e logística na distribuição de produtos.", "magalu_4": "Acompanhamento de indicadores operacionais de estoque e disponibilidade.", "projects_label": "Impacto orientado por dados", "projects_title": "Projetos & Estudos de Caso", "project_1_status": "Projeto aplicado", "project_1_title": "Fraud Risk Analytics", "project_1_desc": "Solução analítica para priorizar casos com maior probabilidade de fraude e apoiar a produtividade da operação.", "project_1_outcome": "Foco de negócio: reduzir exposição a perdas e direcionar a análise para os casos de maior risco.", "project_2_status": "Projeto aplicado", "project_2_title": "Power BI Governance & Capacity", "project_2_desc": "Indicadores para monitorar falhas de atualização, adoção de dashboards, frequência de acessos e oportunidades de otimização de capacidade.", "project_2_outcome": "Foco de negócio: reduzir sobrecarga, priorizar ativos relevantes e melhorar a confiabilidade do ambiente analítico.", "project_3_status": "Estudo de caso em desenvolvimento", "project_3_title": "Supply Chain Analytics", "project_3_desc": "Dashboard analítico para identificar risco de ruptura, excesso de estoque, atrasos de fornecedores e oportunidades de reposição.", "project_3_outcome": "KPIs propostos: giro de estoque, OTIF, fill rate, stockout rate, lead time e forecast accuracy.", "education_label": "Educação", "education_title": "Formações & Certificações", "education_group_data": "Dados e Negócios", "education_group_additional": "Formações Complementares", "degree_data_science": "Bacharelado em Ciência de Dados", "degree_database": "Tecnologia em Banco de Dados", "degree_analytics": "Formação em Data Analytics", "degree_mba": "MBA Executivo em Inteligência Comercial e de Mercado", "degree_physical_education": "Bacharelado em Educação Física", "degree_exercise_physiology": "Pós-graduação em Fisiologia do Exercício", "degree_public_health": "Pós-graduação em Saúde Pública com Ênfase em Saúde da Família", "degree_safety": "Técnico em Segurança do Trabalho", "edu_date_1": "2024 - Prev. 2028", "edu_date_2": "2024 - Prev. 2026", "edu_date_3": "Concluído em 2024", "edu_date_4": "Concluído em 2024", "edu_date_5": "Concluído em 2019", "edu_date_6": "Concluído em 2022", "edu_date_7": "Concluído em 2020", "edu_date_8": "Concluído em 2015", "footer_home": "Início", "footer_experience": "Trajetória", "footer_projects": "Projetos", "footer_education": "Formações", "copyright": "© 2026 Humberto. Todos os direitos reservados. Feito com dedicação e código.", "meta_description": "Portfólio profissional de Humberto Reis, especialista em Data Analytics e Business Intelligence com experiência em Power BI, SQL, Snowflake, Python, KPIs e otimização de processos." }, "en": { "page_title": "Humberto Reis | Data Analytics & Business Intelligence", "nav_home": "Home", "nav_experience": "Experience", "nav_projects": "Projects", "nav_education": "Education", "nav_contact": "Contact", "language_group": "Select language", "profile_role": "Senior Data Analytics & BI Analyst", "location_label": "Location", "location_value": "São Paulo, Brazil", "email_label": "Email", "portfolio_label": "Projects", "portfolio_link": "View Projects →", "hero_title_1": "Turning complex data", "hero_title_2": "into measurable business outcomes", "about_description": "Data Analytics and Business Intelligence professional with more than six years of experience developing analytical solutions for operations, finance, marketing, healthcare, and fraud prevention. I combine Power BI, SQL, Snowflake, Microsoft Fabric, Python, and data modeling to transform complex datasets into scalable KPIs, operational insights, and decision-support solutions. My background also includes inventory, replenishment, and logistics operations, strengthening my end-to-end process perspective.", "badge_operational": "Operational Analytics", "badge_bi": "Business Intelligence", "badge_fraud": "Fraud Analytics", "badge_governance": "Data Governance", "badge_process": "Process Improvement", "badge_kpi": "KPI Strategy", "badge_snowflake": "Snowflake", "badge_advanced": "Advanced Analytics", "cta_projects": "View Projects", "cta_resume": "Download Resume", "cta_contact": "Contact Me", "timeline_label": "Career Timeline", "timeline_title": "Professional Experience", "present_date": "2024 - Present", "heyfit_date": "2022 - 2024", "santa_data_date": "2020 - 2023", "santa_admin_date": "2014 - 2019", "magalu_date": "2011 - 2013", "levva_role": "Levva | Data Analyst / BI Consultant", "levva_1": "Develop executive and operational Power BI dashboards for performance management, risk monitoring, and fraud prevention.", "levva_2": "Build analytical data models and ETL/ELT processes using Snowflake, Microsoft Fabric, Oracle, and SQL Server.", "levva_3": "Analyze large datasets to identify anomalies, operational inefficiencies, and improvement opportunities.", "levva_4": "Define scalable KPIs in partnership with business, technology, and management teams.", "levva_5": "Automate data and reporting routines, reducing manual activities and improving information availability.", "levva_6": "Act as a focal point between stakeholders and technical teams during requirements gathering, validation, and delivery.", "heyfit_role": "Heyfit | Data Analyst / BI Analyst", "heyfit_1": "Developed Power BI and Excel dashboards for Marketing, Finance, Sales, and Operations.", "heyfit_2": "Created KPIs for revenue, customer behavior, operational performance, and business growth.", "heyfit_3": "Analyzed NPS and customer experience data to identify improvement opportunities.", "heyfit_4": "Translated complex analysis into clear recommendations for stakeholders.", "heyfit_5": "Standardized indicators and supported the evolution of a data-driven culture.", "santa_data_role": "Santa Marcelina | Data Analyst", "santa_data_1": "Developed Power BI dashboards integrated with SQL databases to monitor productivity and operational performance.", "santa_data_2": "Structured datasets and analytical models using Power BI, SQL, Python, and Excel.", "santa_data_3": "Automated data collection, transformation, and reporting processes.", "santa_data_4": "Supported decisions related to productivity, resource allocation, and team efficiency.", "santa_data_5": "Contributed to digitalization and continuous-improvement initiatives based on analytical evidence.", "santa_admin_role": "Santa Marcelina | Administrative Assistant", "santa_admin_1": "Supported management through operational reporting and administrative performance indicators.", "santa_admin_2": "Automated controls and reports using Excel, Power BI, and SQL.", "santa_admin_3": "Monitored workforce attendance, materials, equipment, and internal processes.", "santa_admin_4": "Built the analytical foundation that supported the transition into the Data Analyst role.", "magalu_role": "Magazine Luiza | Stock Clerk / Logistics Operations", "magalu_1": "Supported inventory control, stock movement, and product replenishment.", "magalu_2": "Monitored inventory levels and sales patterns to support replenishment decisions.", "magalu_3": "Collaborated with sales and logistics teams on product distribution.", "magalu_4": "Tracked operational inventory and product-availability indicators.", "projects_label": "Data-driven impact", "projects_title": "Projects & Case Studies", "project_1_status": "Applied project", "project_1_title": "Fraud Risk Analytics", "project_1_desc": "Analytical solution designed to prioritize cases with a higher probability of fraud and support operational productivity.", "project_1_outcome": "Business focus: reduce loss exposure and direct analysts toward the highest-risk cases.", "project_2_status": "Applied project", "project_2_title": "Power BI Governance & Capacity", "project_2_desc": "Indicators to monitor refresh failures, dashboard adoption, access frequency, and capacity-optimization opportunities.", "project_2_outcome": "Business focus: reduce overload, prioritize relevant assets, and improve analytical-environment reliability.", "project_3_status": "Case study in development", "project_3_title": "Supply Chain Analytics", "project_3_desc": "Analytical dashboard designed to identify stockout risk, excess inventory, supplier delays, and replenishment opportunities.", "project_3_outcome": "Proposed KPIs: inventory turnover, OTIF, fill rate, stockout rate, lead time, and forecast accuracy.", "education_label": "Education", "education_title": "Education & Certifications", "education_group_data": "Data & Business", "education_group_additional": "Additional Education", "degree_data_science": "Bachelor's Degree in Data Science", "degree_database": "Technology Degree in Database Management", "degree_analytics": "Data Analytics Professional Program", "degree_mba": "Executive MBA in Business and Market Intelligence", "degree_physical_education": "Bachelor's Degree in Physical Education", "degree_exercise_physiology": "Postgraduate Certificate in Exercise Physiology", "degree_public_health": "Postgraduate Certificate in Public Health with an Emphasis on Family Health", "degree_safety": "Occupational Safety Technician Program", "edu_date_1": "2024 - Expected 2028", "edu_date_2": "2024 - Expected 2026", "edu_date_3": "Completed 2024", "edu_date_4": "Completed 2024", "edu_date_5": "Completed 2019", "edu_date_6": "Completed 2022", "edu_date_7": "Completed 2020", "edu_date_8": "Completed 2015", "footer_home": "Home", "footer_experience": "Experience", "footer_projects": "Projects", "footer_education": "Education", "copyright": "© 2026 Humberto. All rights reserved. Built with dedication and code.", "meta_description": "Professional portfolio of Humberto Reis, a Data Analytics and Business Intelligence professional experienced in Power BI, SQL, Snowflake, Python, KPI development, and process optimization." } };
+            const attributeTranslations = {
+                'profile-img': { alt: { pt: 'Foto de perfil de Humberto Reis', en: 'Profile photo of Humberto Reis' } },
+                'github-link': { title: { pt: 'GitHub', en: 'GitHub' } },
+                'linkedin-link': { title: { pt: 'LinkedIn', en: 'LinkedIn' } },
+                'whatsapp-link': { title: { pt: 'WhatsApp', en: 'WhatsApp' } }
+            };
+            const storageKey = 'humberto-portfolio-language';
+            function readSavedLanguage() {
+                try { return localStorage.getItem(storageKey) === 'en' ? 'en' : 'pt'; } catch (_) { return 'pt'; }
+            }
+            function saveLanguage(language) { try { localStorage.setItem(storageKey, language); } catch (_) { } }
+            function applyLanguage(language) {
+                const lang = language === 'en' ? 'en' : 'pt';
+                const dictionary = translations[lang];
+                document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+                document.querySelectorAll('[data-i18n]').forEach((element) => {
+                    const key = element.dataset.i18n;
+                    if (Object.prototype.hasOwnProperty.call(dictionary, key)) element.textContent = dictionary[key];
+                });
+                document.querySelectorAll('[data-i18n-content]').forEach((element) => {
+                    const key = element.dataset.i18nContent;
+                    if (Object.prototype.hasOwnProperty.call(dictionary, key)) element.setAttribute('content', dictionary[key]);
+                });
+                document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+                    const key = element.dataset.i18nAriaLabel;
+                    if (Object.prototype.hasOwnProperty.call(dictionary, key)) element.setAttribute('aria-label', dictionary[key]);
+                });
+                Object.entries(attributeTranslations).forEach(([elementId, attributes]) => {
+                    const element = document.getElementById(elementId);
+                    if (!element) return;
+                    Object.entries(attributes).forEach(([attribute, values]) => { if (values[lang]) element.setAttribute(attribute, values[lang]); });
+                });
+                document.querySelectorAll('.language-btn').forEach((button) => {
+                    const selected = button.dataset.lang === lang;
+                    button.classList.toggle('active', selected);
+                    button.setAttribute('aria-pressed', String(selected));
+                });
+                saveLanguage(lang);
+            }
+            function initializeLanguageSwitcher() {
+                document.querySelectorAll('.language-btn').forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+                applyLanguage(readSavedLanguage());
+            }
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initializeLanguageSwitcher);
+            else initializeLanguageSwitcher();
+        })();</script>
+    <script defer="" src="app.js"></script>
 </body>
 
 </html>
-
 <!-- https://sites.google.com/view/portifoliohumbertoreis?usp=sharing -->
